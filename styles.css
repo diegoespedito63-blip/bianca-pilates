@@ -157,7 +157,25 @@ em { color: var(--primary); font-style: italic; }
 .equipment__number { display: block; font-family: var(--serif); font-size: 3.2rem; font-weight: 600; line-height: 1; color: var(--primary-soft); margin-bottom: .8rem; }
 .equipment__item p { color: var(--muted); }
 
+/* Mat Pilates */
+.mat { background: var(--white); overflow: hidden; }
+.mat__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.mat__image { position: relative; }
+.mat__image img { border-radius: var(--radius); aspect-ratio: 4 / 5; object-fit: cover; width: 100%; box-shadow: var(--shadow-md); }
+.mat__tag { position: absolute; left: 1.2rem; top: 1.2rem; background: rgba(253, 254, 251, .92); padding: .45rem 1rem; border-radius: 999px; font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--primary-dark); }
+.mat__text > p { color: var(--muted); font-size: 1.04rem; margin-bottom: 1.1rem; }
+.mat__options { display: grid; gap: 1rem; margin: 2rem 0 1.5rem; }
+.mat__option { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.4rem; border: 1px solid var(--line); border-radius: 16px; background: var(--cream); transition: border-color .3s, transform .3s var(--ease); }
+.mat__option:hover { border-color: var(--primary); transform: translateX(4px); }
+.mat__option strong { display: block; font-size: 1rem; }
+.mat__option span { font-size: .9rem; color: var(--muted); }
+.mat__icon { flex-shrink: 0; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: var(--primary-soft); }
+.mat__icon svg { width: 24px; height: 24px; fill: none; stroke: var(--primary-dark); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.mat__note { display: inline-flex; align-items: center; gap: .6rem; font-weight: 500; color: var(--primary-dark) !important; margin-bottom: 2rem !important; }
+.mat__note::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); }
+
 /* Como agendar */
+.steps { background: var(--cream); }
 .steps__list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; counter-reset: step; position: relative; }
 .steps__list::before { content: ''; position: absolute; top: 28px; left: 16%; right: 16%; height: 1px; background: repeating-linear-gradient(90deg, var(--sage) 0 6px, transparent 6px 12px); opacity: .6; }
 .step { text-align: center; position: relative; padding: 0 1rem; }
@@ -166,7 +184,7 @@ em { color: var(--primary); font-style: italic; }
 
 /* Galeria */
 .gallery { background: var(--white); }
-.gallery__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.gallery__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
 .gallery__item { position: relative; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: var(--radius); overflow: hidden; }
 .gallery__item img { width: 100%; aspect-ratio: 1; object-fit: cover; transition: transform .6s var(--ease); }
 .gallery__item::after { content: '+'; position: absolute; inset: 0; display: grid; place-items: center; font-size: 2.5rem; font-weight: 300; color: var(--white); background: rgba(38, 50, 44, .35); opacity: 0; transition: opacity .35s; }
@@ -245,8 +263,9 @@ em { color: var(--primary); font-style: italic; }
 
 /* ---------- Responsivo ---------- */
 @media (max-width: 1024px) {
-  .cards { grid-template-columns: repeat(2, 1fr); }
+  .cards, .gallery__grid { grid-template-columns: repeat(2, 1fr); }
   .hero__badge { left: -1rem; }
+  .nav { gap: 1.5rem; }
 }
 
 @media (max-width: 860px) {
@@ -260,7 +279,8 @@ em { color: var(--primary); font-style: italic; }
   .nav .btn { margin-top: 1rem; padding: 1rem 2rem; font-size: 1rem; }
 
   .hero { padding: 2.5rem 0 4.5rem; }
-  .hero__inner, .about__inner, .faq__inner { grid-template-columns: 1fr; gap: 3.5rem; }
+  .hero__inner, .about__inner, .faq__inner, .mat__inner { grid-template-columns: 1fr; gap: 3.5rem; }
+  .mat__image { max-width: 460px; }
   .hero__image { max-width: 400px; width: 88%; margin: 0 auto; order: -1; }
   .hero__text { text-align: center; }
   .hero__lead, .hero__facts { margin-inline: auto; }
@@ -278,7 +298,8 @@ em { color: var(--primary); font-style: italic; }
 }
 
 @media (max-width: 560px) {
-  .cards, .gallery__grid, .credentials { grid-template-columns: 1fr; }
+  .cards, .credentials { grid-template-columns: 1fr; }
+  .gallery__grid { gap: .8rem; }
   .hero__facts { gap: 1.6rem; }
   .hero__facts strong { font-size: 1.7rem; }
   .btn { width: 100%; }
